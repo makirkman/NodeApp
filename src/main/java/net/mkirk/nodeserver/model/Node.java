@@ -5,13 +5,22 @@ import javax.persistence.Entity ;
 import javax.persistence.GeneratedValue ;
 import javax.persistence.Id ;
 
+/**
+ * The primary entity this server is built to store.
+ *  Represents a collection of information about one thing for the front-end to display.
+ */
 @Entity
 public class Node {
+	/** Primary key identifier of this node. */
 	private @Id @GeneratedValue Long id ;
+	/** The name of this node - its primary human-friendly identifier. */
 	private String name ;
+	/** Where this node comes from in the wider application. */
 	private String location ;
+	/** Whether this node can be streamed. */
 	private boolean isStreamable ;
 
+	// empty constructor for JPA
 	public Node() {}
 
 	public Node(String name, String location, boolean isStreamable) {
@@ -20,6 +29,7 @@ public class Node {
 		this.isStreamable = isStreamable ;
 	}
 
+	/* Getters and Setters */
 	public Long getId() {
 		return this.id ;
 	}
@@ -45,8 +55,9 @@ public class Node {
 	public void setIsStreamable(boolean newIsStreamable) {
 		this.isStreamable = newIsStreamable ;
 	}
+	/* ------------------- */
 
-	/* JPA Functions */
+	/* Helper overrides */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -73,7 +84,5 @@ public class Node {
 	public String toString() {
 		return "Node {" + "id=" + this.id + ", name='" + this.name + '\'' + ", location='" + this.location + '\'' + ", isStreamable='" + this.isStreamable + '\'' + '}';
 	}
-
-	/* ------------- */
-
+	/* ---------------- */
 }

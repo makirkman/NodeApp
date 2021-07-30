@@ -8,6 +8,9 @@ import org.springframework.boot.CommandLineRunner ;
 import org.springframework.context.annotation.Bean ;
 import org.springframework.context.annotation.Configuration ;
 
+/**
+ * Initialises a JPA Database around the NodeRepository, and pre-fills it with some test Nodes.
+ */
 @Configuration
 public class LoadDatabase {
 
@@ -16,6 +19,7 @@ public class LoadDatabase {
 	@Bean
 	CommandLineRunner initDatabase(NodeRepository repository) {
 
+		/** Test Nodes to use as initial data on booting the server. */
 		Node[] initialNodes = {
 			new Node("File Reader", "Source", true),
 			new Node("File Writer", "Source", false),
@@ -24,6 +28,7 @@ public class LoadDatabase {
 		} ;
 
 		return args -> {
+			// store every test node in the repository
 			for (Node node : initialNodes) {
 				log.info("Preloading database: " + repository.save(node));
 			}

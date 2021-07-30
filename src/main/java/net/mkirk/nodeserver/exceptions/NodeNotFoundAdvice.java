@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler ;
 import org.springframework.web.bind.annotation.ResponseBody ;
 import org.springframework.web.bind.annotation.ResponseStatus ;
 
+/**
+ * Responds to NodeNotFoundExceptions by returning a 404 with the error message, as a response body.
+ */
 @ControllerAdvice
 public class NodeNotFoundAdvice {
 	@ResponseBody

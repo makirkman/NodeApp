@@ -39,3 +39,20 @@ p {
 .NodeImage {
   background-color: #444444 ;
 }
+
+
+/* Add Node */
+.AddNodeForm {
+  display: block ;
+  text-align: center ;
+}
+
+.NodeFormDetails {
+  display: block ;
+  margin: 10px 0px 0px 0px ;
+}
+
+.AddNodeButton {
+  margin: 10px 0px 10px 0px ;
+}
+/* -------- */

@@ -4,7 +4,7 @@ import SquareDisplay from "../SquareDisplay/SquareDisplay";
 import './SourceNode.css' ;
 
 export interface INode {
-	id: string,
+	id?: string,
 	name: string,
 	location: string,
 	isStreamable: boolean,

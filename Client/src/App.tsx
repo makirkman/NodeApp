@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Nodes retrieved:</h1>
+        <h1>Nodes</h1>
         <NodeGallery></NodeGallery>
       </header>
     </div>

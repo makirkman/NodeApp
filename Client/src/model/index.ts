@@ -1,6 +1,6 @@
 import SourceNode, { INode } from './SourceNode/SourceNode' ;
 import NodeGallery from './NodeGallery/NodeGallery' ;
-import INodeResponseData from './INodeResponseData';
+import IGetNodesResponseData from '../controller/IGetNodesResponseData';
 import SquareDisplay from './SquareDisplay/SquareDisplay';
 
 export {
@@ -10,5 +10,5 @@ export {
 } ;
 export type {
 	INode,
-	INodeResponseData,
+	IGetNodesResponseData,
 }

@@ -1,4 +1,4 @@
-# Nodes Client
+# Node Client
 
 Connects to the Nodes Server App and provides a UI to display & alter the stored Nodes.
 

@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios" ;
 import React, { useState } from "react";
-import { INodeResponseData, INode } from "../model" ;
+import { IGetNodesResponseData, INode } from "../model" ;
+import IAddNodesResponseData from "./IAddNodesResponseData";
 
 
 /**
@@ -26,8 +27,19 @@ class NodeController {
 	getNodes = async () => {
 		try {
 			this.nodes = await axios.get(this.nodeUrl)
-				.then((res:AxiosResponse<INodeResponseData>) => {
-					return res.data._embedded.nodeList ;
+				.then((res:AxiosResponse<IGetNodesResponseData>) => {
+					let resNodes = res.data._embedded.nodeList ;
+					let newNodes = new Array<INode>() ;
+
+					// clean up the response before saving as INodes (remove links)
+					for (let i=0 ; i<resNodes.length ; i++) {
+						newNodes.push({
+							name: resNodes[i].name,
+							location: resNodes[i].location,
+							isStreamable: resNodes[i].isStreamable,
+						}) ;
+					}
+					return newNodes ;
 				}) ;
 		} catch (e) {
 			console.log(e) ;
@@ -38,6 +50,21 @@ class NodeController {
 
 		return this.nodes ;
 	} ;
+
+	/** Adds the given node. */
+	addNode = async (node: INode) => {
+		const links = await axios.post(this.nodeUrl, node)
+			.then( (res: AxiosResponse<IAddNodesResponseData>) => {
+				// return the links to the new node
+				return res.data.links ;
+			}) ;
+
+		await this.getNodes() ;
+		this.updateNodes() ;
+
+		return links
+	}
+
 	/** Deletes a given node. */
 	deleteNode = async (nodeId: string) => {
 		await axios.delete(`${this.nodeUrl}/${nodeId}`) ;

@@ -1,0 +1,41 @@
+h3 {
+  margin: 6px 0px 10px 0px ;
+  font-size: 22px ;
+}
+
+p {
+  display: inline ;
+  color: grey ;
+  font-weight: 280 ;
+}
+
+.App {
+  text-align: center ;
+}
+
+.App-header {
+  background-color: #282c34 ;
+  min-height: 100vh ;
+  display: flex ;
+  flex-direction: column ;
+  flex-wrap: wrap ;
+  align-items: left ;
+  justify-content: center ;
+  font-size: 16px ;
+  color: white ;
+}
+
+.App-link {
+  color: #61dafb ;
+}
+
+.NodeDetails {
+  display: block ;
+  margin: 0px 0px 0px 10px ;
+
+  text-align: left ;
+}
+
+.NodeImage {
+  background-color: #444444 ;
+}

@@ -9,13 +9,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping ;
-import org.springframework.web.bind.annotation.GetMapping ;
-import org.springframework.web.bind.annotation.PathVariable ;
-import org.springframework.web.bind.annotation.PostMapping ;
-import org.springframework.web.bind.annotation.PutMapping ;
-import org.springframework.web.bind.annotation.RequestBody ;
-import org.springframework.web.bind.annotation.RestController ;
+import org.springframework.web.bind.annotation.*;
 
 import net.mkirk.nodeserver.model.Node ;
 import net.mkirk.nodeserver.model.NodeRepository ;
@@ -28,6 +22,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
  * Controller for accessing the NodeRepository through HTTP methods.
  */
 @RestController
+@RequestMapping("/nodes")
+@CrossOrigin
 public class NodeController {
 
 	/** The repository this Controller is a gateway to. */
@@ -46,7 +42,7 @@ public class NodeController {
 	 *  models.
 	 * @return CollectionModel of Nodes
 	 */
-	@GetMapping("/nodes")
+	@GetMapping
 	public CollectionModel<EntityModel<Node>> all() {
 		// gather all Nodes from the repository and wrap them in RESTful models
 		List<EntityModel<Node>> nodes = this.repository.findAll().stream()
@@ -63,7 +59,7 @@ public class NodeController {
 	 * @param newNode The node to add to the repository
 	 * @return A ResponseModel representing the added node
 	 */
-	@PostMapping("/nodes")
+	@PostMapping
 	ResponseEntity<?> newNode(@RequestBody Node newNode) {
 		// save the new node into our repository, and prepare the response as a RESTful model
 		EntityModel<Node> entityModel = this.assembler.toModel(this.repository.save(newNode)) ;
@@ -79,7 +75,7 @@ public class NodeController {
 	 * @param id The node to search for in the repository
 	 * @return A ResponseModel representing the found node
 	 */
-	@GetMapping("/nodes/{id}")
+	@GetMapping("/{id}")
 	public EntityModel<Node> one(@PathVariable Long id) {
 		Node node = this.repository.findById(id)
 			.orElseThrow(() -> new NodeNotFoundException(id)) ;
@@ -94,21 +90,21 @@ public class NodeController {
 	 * @param id The id of the node to replace
 	 * @return A ResponseModel representing the stored node
 	 */
-	@PutMapping("/nodes/{id}")
+	@PutMapping("/{id}")
 	ResponseEntity<?> replaceNode(@RequestBody Node newNode, @PathVariable Long id) {
 		// update the node in the repository and store the repository response
 		Node updatedNode = this.repository.findById(id)
 			.map(node -> {
 				node.setName(newNode.getName()) ;
 				node.setLocation(newNode.getLocation()) ;
-				node.setIsStreamable(newNode.isStreamable()) ;
+				node.setIsStreamable(newNode.getIsStreamable()) ;
 
 				return this.repository.save(node) ;
 			})
 			.orElseGet(() -> {
 				newNode.setId(id) ;
 				// FIX: if you delete a node and try to PUT to that id again, this call behaves like a POST and just stores it with a new id
-				//  different to the id in newNode - on research this seems to be a JPA bug as it is default springboot behaviour
+				//  different to the id in newNode - on research this seems to be a JPA bug as it occurs also with a default springboot controller
 				return this.repository.save(newNode) ;
 			}) ;
 
@@ -125,7 +121,7 @@ public class NodeController {
 	 * @param id The id of the node to delete
 	 * @return An empty HTTP message indicating success
 	 */
-	@DeleteMapping("/nodes/{id}")
+	@DeleteMapping("/{id}")
 	ResponseEntity<?> deleteNode(@PathVariable Long id) {
 		// make sure the node exists
 		if (!this.repository.existsById(id)) {

@@ -39,7 +39,7 @@ public class Node {
 	public String getLocation() {
 		return this.location ;
 	}
-	public boolean isStreamable() {
+	public boolean getIsStreamable() {
 		return this.isStreamable ;
 	}
 

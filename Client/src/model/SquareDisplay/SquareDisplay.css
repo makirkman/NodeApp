@@ -1,0 +1,12 @@
+
+.SquareDisplay {
+	padding: 2px 6px 4px 6px ;
+	margin: 20px 0px 0px 0px ;
+	border: 2px solid grey ;
+
+	display: auto ;
+
+	color: grey ;
+	font-weight: bold ;
+	font-size: 0.8em ;
+}

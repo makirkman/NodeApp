@@ -1,8 +1,6 @@
 import axios, { AxiosResponse } from "axios" ;
-import React, { useState } from "react";
 import { IGetNodesResponseData, INode } from "../model" ;
 import IAddNodesResponseData from "./IAddNodesResponseData";
-
 
 /**
  * Controls access to the Node collection - provides interface to access and
@@ -61,8 +59,6 @@ class NodeController {
 			}) ;
 
 		await this.getNodes() ;
-		this.updateNodes() ;
-
 		return links
 	}
 
@@ -71,7 +67,6 @@ class NodeController {
 		await axios.delete(`${this.nodeUrl}/${nodeId}`) ;
 		// do a separate get to make sure the deletion was successful in the backend
 		await this.getNodes() ;
-		this.updateNodes() ;
 	} ;
 } ;
 

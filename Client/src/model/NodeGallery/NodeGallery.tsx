@@ -32,11 +32,11 @@ const NodeGallery = () => {
 
 	const handleAddNodeClick = async (node: INode) => {
 		nodeController.addNode(node) ;
-	}
+	} ;
 
 	const handleDeleteNodeClick = async (nodeId: string) => {
 		nodeController.deleteNode(nodeId) ;
-	}
+	} ;
 
 	return (
 		<div>

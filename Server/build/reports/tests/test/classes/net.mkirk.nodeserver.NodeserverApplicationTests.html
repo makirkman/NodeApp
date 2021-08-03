@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - NodeserverApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>NodeserverApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/net.mkirk.nodeserver.html">net.mkirk.nodeserver</a> &gt; NodeserverApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.006s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-08-02 21:26:57.295  INFO 7796 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [net.mkirk.nodeserver.NodeserverApplicationTests], using SpringBootContextLoader
+2021-08-02 21:26:57.296  INFO 7796 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [net.mkirk.nodeserver.NodeserverApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-08-02 21:26:57.297  INFO 7796 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [net.mkirk.nodeserver.NodeserverApplicationTests]: NodeserverApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-08-02 21:26:57.299  INFO 7796 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration net.mkirk.nodeserver.NodeServerApplication for test class net.mkirk.nodeserver.NodeserverApplicationTests
+2021-08-02 21:26:57.302  INFO 7796 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-08-02 21:26:57.302  INFO 7796 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@189956ff, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4313124a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4f1e5f70, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@58098b7e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@a75102e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@51afc268, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6cf7e2f2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7831c669, org.springframework.test.context.event.EventPublishingTestExecutionListener@5ae74d21, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@75f46897, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@26c7f4a9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@50b36c96, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@30ddbde4, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@66bbdbb8, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7f40197a]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.1.1</a> at 2 Aug 2021, 9:26:57 pm</p>
+</div>
+</div>
+</body>
+</html>

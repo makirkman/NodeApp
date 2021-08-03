@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class NodeTests {
 
-
 	@Test
 	void nodesMatch() {
 		Node nodeOne = new Node("Frederick II", "Sicily", true) ;

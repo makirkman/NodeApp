@@ -34,6 +34,7 @@ class NodeController {
 					// clean up the response before saving as INodes (remove links)
 					for (let i=0 ; i<resNodes.length ; i++) {
 						newNodes.push({
+							id: resNodes[i].id,
 							name: resNodes[i].name,
 							location: resNodes[i].location,
 							isStreamable: resNodes[i].isStreamable,
